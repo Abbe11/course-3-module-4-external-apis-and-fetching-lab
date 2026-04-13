@@ -1,0 +1,51 @@
+FAIL test/index.test.js
+  Weather Alerts App - Input clearing
+    ✓ calls fetch with the correct state in the URL (219 ms)
+    ✓ displays fetched alert data in the DOM after a successful fetch (123 ms)
+    ✓ clears the input field after clicking fetch (63 ms)
+    ✕ displays an error message when fetch fails (61 ms)
+    ✕ clears the error message after a successful fetch (44 ms)
+
+  ● Weather Alerts App - Input clearing › displays an error message when fetch fails
+
+    expect(element).not.toHaveClass("hidden")
+
+    Expected the element not to have class:
+      hidden
+    Received:
+      hidden
+
+      124 |
+      125 |     const errorDiv = container.querySelector('#error-message')
+    > 126 |     expect(errorDiv).not.toHaveClass('hidden')
+          |                          ^
+      127 |     expect(errorDiv).toHaveTextContent(/network failure/i)
+      128 |
+      129 |     fetchMock.mockRejectedValue(new Error('Other issue'))
+
+      at Object.toHaveClass (test/index.test.js:126:26)
+
+  ● Weather Alerts App - Input clearing › clears the error message after a successful fetch
+
+    expect(element).not.toHaveClass("hidden")
+
+    Expected the element not to have class:
+      hidden
+    Received:
+      hidden
+
+      152 |
+      153 |     const errorDiv = container.querySelector('#error-message')
+    > 154 |     expect(errorDiv).not.toHaveClass('hidden')
+          |                          ^
+      155 |     expect(errorDiv).toHaveTextContent(/network issue/i)
+      156 |
+      157 |     fetchMock.mockResolvedValue({
+
+      at Object.toHaveClass (test/index.test.js:154:26)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 3 passed, 5 total
+Snapshots:   0 total
+Time:        1.956 s
+Ran all test suites.
